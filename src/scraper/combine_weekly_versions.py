@@ -1,6 +1,8 @@
 import re
 import os
 import json
+import math
+import datetime
 
 VERSION_DIR = 'json/versions'
 
@@ -11,6 +13,13 @@ matching_files = [f for f in os.listdir(VERSION_DIR) if re.search(filename_regex
 unique_dates = sorted(list(set([re.search(filename_regex, d).group(1) for d in matching_files])))
 # print(matching_files, unique_dates)
 
+def weeks_away(input_str):
+    election_week_start = datetime.datetime.strptime('2020-10-31', '%Y-%m-%d')
+    data_date = datetime.datetime.strptime(input_str, '%Y-%m-%d')
+    # print(math.ceil((election_week_start - data_date).days / 7))
+    weeks_away = math.ceil((election_week_start - data_date).days / 7)
+    return weeks_away
+
 most_recent_updates = []
 for date in unique_dates:
     regex = re.compile('{}_\d+.json'.format(date))
@@ -18,7 +27,7 @@ for date in unique_dates:
     # print(most_recent)
     most_recent_updates.append(most_recent)
 
-out_obj = {}
+out_obj = {'ts_statewide': []}
 for file in most_recent_updates:
     with open(os.path.join(VERSION_DIR, file), 'r') as version:
         version_obj = json.loads(version.read())
@@ -34,10 +43,21 @@ for file in most_recent_updates:
             out_obj[county]['apps_submitted_latest'] = data['apps_submitted']
             out_obj[county]['ballots_accepted_latest'] = data['ballots_accepted']
 
-            out_obj[county]['ts'].append({
+            ts_record = {
                 'date': version_obj['data_date'],
+                'weeks_away': weeks_away(version_obj['data_date']),
                 'apps_submitted': data['apps_submitted'],
                 'ballots_accepted': data['ballots_accepted'],
-            })
+            }
+
+            out_obj[county]['ts'].append(ts_record)
+
+            ts_statewide_date = [date for date in out_obj['ts_statewide'] if date['date'] == version_obj['data_date']]
+            if len(ts_statewide_date) == 0:
+                out_obj['ts_statewide'].append(ts_record)
+            else:
+                # ts_statewide_date[0]['weeks_away'] += weeks_away(version_obj['data_date'])
+                ts_statewide_date[0]['apps_submitted'] += data['apps_submitted']
+                ts_statewide_date[0]['ballots_accepted'] += data['ballots_accepted']
 
 print(json.dumps(out_obj))

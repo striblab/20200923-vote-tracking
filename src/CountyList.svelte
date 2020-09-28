@@ -1,6 +1,6 @@
 <script>
 	import {intcomma} from 'journalize';
-  export let county_data = [];
+  export let county_data_2020 = [];
 </script>
 
 <table id="county-totals">
@@ -9,7 +9,7 @@
     <th>Ballots requested</th>
     <th>Ballots accepted</th>
   </tr>
-  {#each county_data as county, i}
+  {#each county_data_2020 as county, i}
   <tr>
     <td>{county.county_name}</td>
     <td>{intcomma(county.apps_submitted_latest)}</td>

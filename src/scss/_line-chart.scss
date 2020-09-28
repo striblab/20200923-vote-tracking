@@ -1,0 +1,17 @@
+line.year-total {
+  opacity: 1;
+  stroke: #3A6B9A;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 4 2;
+}
+
+text.year-total-label {
+  font-family: "Benton Sans", sans-serif;
+  font-size: 9px;
+  text-anchor: end;
+  // stroke: #FFFFFF;
+  // stroke-width: 5px;
+  fill: #333;
+}

@@ -33,6 +33,7 @@
   "dependencies": {
     "@babel/runtime": "^7.6.3",
     "@babel/runtime-corejs3": "^7.6.3",
+    "d3": "^6.2.0",
     "journalize": "^2.4.0",
     "moment-timezone": "^0.5.31",
     "promise-polyfill": "^8.1.3",
