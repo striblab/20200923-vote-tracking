@@ -50,7 +50,7 @@ for file in most_recent_updates:
                 'ballots_accepted': data['ballots_accepted'],
             }
 
-            out_obj[county]['ts'].append(ts_record)
+            out_obj[county]['ts'].append(ts_record.copy())
 
             ts_statewide_date = [date for date in out_obj['ts_statewide'] if date['date'] == version_obj['data_date']]
             if len(ts_statewide_date) == 0:

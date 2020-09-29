@@ -2,9 +2,34 @@
 	import CountySparkline from './CountySparkline.svelte';
 
 	import {intcomma} from 'journalize';
+  import moment from 'moment-timezone';
+
   export let county_data_2020 = [];
 	export let county_data_2018 = [];
 	export let x_axis_labels;
+
+	let current_week = x_axis_labels.find(x => x.date.getTime() == new Date(moment(county_data_2020[0].date_latest).tz('America/Chicago')).getTime()).weeks_away
+
+	const get_county_prev_year = function (data, county_name) {
+		console.log(county_name)
+		return data.find(elem => elem.county_name.toLowerCase() == county_name.toLowerCase())
+	}
+
+	const get_accepted_by_week = function (data, week) {
+		return data.find(elem => elem.weeks_away == week).ballots_accepted
+	}
+
+	const pct_to_date = function (accepted_2020, accepted_prev_year_to_date) {
+		console.log(accepted_2020, accepted_prev_year_to_date);
+		if (accepted_prev_year_to_date == 0 || accepted_2020 == 0) {
+			return 'N/A'
+		} else {
+			var pct_change = (accepted_2020 - accepted_prev_year_to_date) / accepted_prev_year_to_date
+		}
+		var change_sign = pct_change >= 0 ? '+' : '';
+		return change_sign + (100 * pct_change).toFixed(1) + '%'
+	}
+
 </script>
 
 <h2>Absentee voting by county</h2>
@@ -13,6 +38,7 @@
     <th>County</th>
     <th>Ballots requested</th>
     <th>Ballots accepted</th>
+		<th>% of 2018<br/>({current_week} weeks to go)</th>
 		<th></th>
   </tr>
   {#each county_data_2020 as county, i}
@@ -20,7 +46,18 @@
     <td>{county.county_name}</td>
     <td>{intcomma(county.apps_submitted_latest)}</td>
     <td>{intcomma(county.ballots_accepted_latest)}</td>
-		<td class="spark-td"><CountySparkline name={county.county_name} data_2020={county.ts} data_2018={county_data_2018.find(elem => elem.county_name.toLowerCase() == county.county_name.toLowerCase())} {x_axis_labels}/></td>
+		<td>{pct_to_date(
+				county.ballots_accepted_latest,
+				get_accepted_by_week(get_county_prev_year(county_data_2018, county.county_name).ts, current_week)
+			)}</td>
+		<td class="spark-td">
+				<CountySparkline
+					name={county.county_name}
+					data_2020={county.ts}
+					data_2018={get_county_prev_year(county_data_2018, county.county_name).ts}
+					{x_axis_labels}
+				/>
+		</td>
   </tr>
   {/each}
   </table>

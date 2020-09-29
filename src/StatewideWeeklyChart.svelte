@@ -15,7 +15,6 @@
     resp_width = window_width;
   }
 
-  // console.log(data)
   let resp_width
   let width = 600
   let height = 400
@@ -24,7 +23,6 @@
   let svg_width
 
   let selector = '#' + id
-  // let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   let x_values = []
 
   // let formatWeek = d3.timeFormat("%e");
@@ -42,9 +40,8 @@
   // let tooltipWidth;
   // let tooltipHeight;
 
+  // This controls the "weeks away" labeling of the x-axis, which on the data side is a true date scale
   function processWeeksAway(input) {
-    // console.log(input, input.getTime())
-    // // x_values.push(input.label);'
     var matching_date = x_axis_labels.filter(n => n.date.getTime() == input.getTime());
     if (matching_date.length > 0) {
       return matching_date[0].label
@@ -61,7 +58,7 @@
 
   let y = d3.scaleLinear()
     .domain([0, 800000])
-    // .domain([0, d3.max(data, d => d.hosp_total_daily_change)])
+    // .domain([0, d3.max(data, d => d.ballots_accepted)])
     .range([height - margin.bottom, margin.top])
 
 
@@ -89,7 +86,6 @@
       .tickSizeInner(0)
 
   let yAxis = g => g
-      // .attr("transform", `translate(0,0)`)
       .attr('class', 'yAxis')
       .call(
         d3.axisRight(y)
@@ -181,10 +177,6 @@
     buildChart()
   });
 </script>
-
-<style>
-
-</style>
 
 <div>
   <h3>Absentee voting is on track to dwarf past elections</h3>

@@ -1,5 +1,4 @@
 <script>
-	// export let name;
 	import {intcomma} from 'journalize';
 	import moment from 'moment-timezone';
 
@@ -50,8 +49,7 @@
 		const response = await fetch("https://static.startribune.com/staging/news/projects/all/20200923-vote-tracking/json/county-list-latest.json");
 		county_obj = await response.json();
 		if (response.ok) {
-
-      return reshape_county_list(county_obj);  // This is a little weird because the dict gets reshaped into a list below
+      return reshape_county_list(county_obj);
 		}
 	}
 
