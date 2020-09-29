@@ -22,6 +22,6 @@
 
 </script>
 
+<h3>Total absentee ballots requested: {intcomma(total_ballots_requested)}</h3>
+<h3>Total absentee ballots accepted so far: {intcomma(total_ballots_accepted)} ({round_pct(pct_ballots_accepted)} of all requested)</h3>
 <div>Last update: {last_updated}</div>
-<div>Total absentee ballots requested: {intcomma(total_ballots_requested)}</div>
-<div>Total absentee ballots accepted: {intcomma(total_ballots_accepted)} ({round_pct(pct_ballots_accepted)})</div>

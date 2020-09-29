@@ -1,17 +1,44 @@
-line.year-total {
-  opacity: 1;
-  stroke: #3A6B9A;
-  stroke-width: 1;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  stroke-dasharray: 4 2;
-}
+svg {
+  text {
+    font-family: "Benton Sans", sans-serif;
+    font-size: 8px;
+  }
 
-text.year-total-label {
-  font-family: "Benton Sans", sans-serif;
-  font-size: 9px;
-  text-anchor: end;
-  // stroke: #FFFFFF;
-  // stroke-width: 5px;
-  fill: #333;
+  path.accepted {
+    opacity: 1;
+    fill: none;
+    stroke: #CCCCCC;
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+
+  path.accepted-2020 {
+    stroke: #3A6B9A;
+  }
+
+  circle.accepted {
+    fill: none;
+    stroke: #a9a9a9;
+    opacity: 1;
+    stroke-width: 1.5px
+  }
+
+  line.year-total {
+    opacity: 1;
+    stroke: #333;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-dasharray: 4 2;
+  }
+
+  text.year-total-label {
+    // font-family: "Benton Sans", sans-serif;
+    // font-size: 9px;
+    text-anchor: middle;
+    // stroke: #FFFFFF;
+    // stroke-width: 5px;
+    fill: #333;
+  }
 }

@@ -3,6 +3,7 @@
   export let county_data_2020 = [];
 </script>
 
+<h2>Absentee voting by county</h2>
 <table id="county-totals">
   <tr>
     <th>County</th>

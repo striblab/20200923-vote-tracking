@@ -5,18 +5,8 @@
   import {intcomma} from 'journalize';
   import moment from 'moment-timezone';
 
-  
-
-  // for (const [key, value] of Object.entries(county_obj_2018)) {
-  //   if (key != 'ts_statewide') {
-  //     console.log(key, value);
-  //     var item = value;
-  //     item['county_name'] = key;
-  //     county_list_2018.push(item);
-  //   }
-  // }
-
   export let data;
+  export let data_2018;
   export let id;
   export let window_width;
 
@@ -36,17 +26,22 @@
   // let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   let x_values = []
   const x_axis_labels = [
-  // new Date(moment(XXXX).tz('America/Chicago')))
-    // {'date': new Date(moment('2020-09-18').tz('America/Chicago')), 'label': ''},
-    {'date': new Date(moment('2020-09-25').tz('America/Chicago')), 'label': '6 weeks away'},
-    {'date': new Date(moment('2020-10-02').tz('America/Chicago')), 'label': '5 weeks away'},
-    {'date': new Date(moment('2020-10-09').tz('America/Chicago')), 'label': '4 weeks away'},
-    {'date': new Date(moment('2020-10-16').tz('America/Chicago')), 'label': '3 weeks away'},
-    {'date': new Date(moment('2020-10-23').tz('America/Chicago')), 'label': '2 weeks away'},
-    {'date': new Date(moment('2020-10-30').tz('America/Chicago')), 'label': '1 week away'},
-    {'date': new Date(moment('2020-11-03').tz('America/Chicago')), 'label': 'Nov. 3'},
-    {'date': new Date(moment('2020-11-06').tz('America/Chicago')), 'label': ''}
+    {'date': new Date(moment('2020-09-25').tz('America/Chicago')), 'weeks_away': 6, 'label': '6 weeks away'},
+    {'date': new Date(moment('2020-10-02').tz('America/Chicago')), 'weeks_away': 5, 'label': '5 weeks away'},
+    {'date': new Date(moment('2020-10-09').tz('America/Chicago')), 'weeks_away': 4, 'label': '4 weeks away'},
+    {'date': new Date(moment('2020-10-16').tz('America/Chicago')), 'weeks_away': 3, 'label': '3 weeks away'},
+    {'date': new Date(moment('2020-10-23').tz('America/Chicago')), 'weeks_away': 2, 'label': '2 weeks away'},
+    {'date': new Date(moment('2020-10-30').tz('America/Chicago')), 'weeks_away': 1, 'label': '1 week away'},
+    {'date': new Date(moment('2020-11-02').tz('America/Chicago')), 'weeks_away': 0, 'label': ''},
+    {'date': new Date(moment('2020-11-03').tz('America/Chicago')), 'weeks_away': 'election_day', 'label': 'Election Day'},
+    {'date': new Date(moment('2020-11-06').tz('America/Chicago')), 'weeks_away': '', 'label': ''}
   ]
+
+  const set_2020_dates = function (year_data) {
+    year_data.forEach(element => element.date_2020 = x_axis_labels.find(label => label.weeks_away == element.weeks_away).date);
+  }
+
+  set_2020_dates(data_2018);
 
   let chart_type = "new";
 
@@ -64,7 +59,7 @@
   let line_view;
   let tooltipWidth;
   let tooltipHeight;
-  x_axis_labels.forEach(element => console.log(element.date, element.date.getTime()));
+  // x_axis_labels.forEach(element => console.log(element.date, element.date.getTime()));
 
   function processWeeksAway(input) {
     // console.log(input, input.getTime())
@@ -86,7 +81,7 @@
 
 
   let y = d3.scaleLinear()
-    .domain([0, 1000000])
+    .domain([0, 800000])
     // .domain([0, d3.max(data, d => d.hosp_total_daily_change)])
     .range([height - margin.bottom, margin.top])
 
@@ -94,6 +89,11 @@
   let line_2020 = d3.line()
     .defined(d => !isNaN(d.ballots_accepted))
     .x(d => x(new Date(moment(d.date).tz('America/Chicago'))))
+    .y(d => y(d.ballots_accepted))
+
+  let line_2018 = d3.line()
+    .defined(d => !isNaN(d.ballots_accepted))
+    .x(d => x(new Date(moment(d.date_2020).tz('America/Chicago'))))
     .y(d => y(d.ballots_accepted))
 
   let format = d3.format(",")
@@ -147,33 +147,39 @@
         .attr("x", 4)
         .attr("dy", -4))
 
+    // 2018
+    svg.append("path")
+      .datum(data_2018)
+      .attr('class', 'accepted accepted-2018')
+      .attr("d", line_2018)
+
+    svg.append("g")
+      .selectAll('circle')
+      .data(data_2018)
+      .join("circle")
+        .attr('class', 'accepted circle-2018')
+        .attr('cx', d => x(new Date(moment(d.date_2020).tz('America/Chicago'))))
+        .attr('cy', d => y(d.ballots_accepted))
+        .attr('r', 3)
+
+    // 2020
     svg.append("path")
       .datum(data)
-      .attr('class', 'hospRolling')
-      .attr('opacity', 1)
-      .attr("fill", "none")
-      .attr("stroke", "#3A6B9A")
-      .attr("stroke-width", 1.5)
-      .attr("stroke-linejoin", "round")
-      .attr("stroke-linecap", "round")
+      .attr('class', 'accepted accepted-2020')
       .attr("d", line_2020)
 
     svg.append("g")
       .selectAll('circle')
       .data(data)
       .join("circle")
-        .attr('class', 'circle-2020')
+        .attr('class', 'accepted circle-2020')
         .attr('cx', d => x(new Date(moment(d.date).tz('America/Chicago'))))
         .attr('cy', d => y(d.ballots_accepted))
-        .attr('r', 5)
-        .attr('fill', 'none')
-        .attr('stroke', '#a9a9a9')
-        .attr('opacity', 1)
-        .attr('stroke-width', 1.5)
+        .attr('r', 3)
 
-      add_year_total(svg, 'general_2016', 676722, '2016 (general)');
-      add_year_total(svg, 'general_2018', 638581, '2018 (general)');
-      add_year_total(svg, 'primary_2020', 543649, '2020 (Aug. primary)');
+      add_year_total(svg, 'general_2016', 676722, '2016 total (general)');
+      add_year_total(svg, 'general_2018', 638581, '2018 total (general)');
+      add_year_total(svg, 'primary_2020', 543649, '2020 total (Aug. primary)');
   }
 
   function add_year_total(svg, selector, total_ballots_accepted, label) {
@@ -187,7 +193,7 @@
 
     svg.append('text')
       .attr('class', 'year-total-label ' + selector)
-      .attr('x', width - margin.right)
+      .attr('x', (width / 2))
       .attr('y', y(total_ballots_accepted) - 5)
       .text(label)
   }
@@ -202,6 +208,7 @@
 </style>
 
 <div>
+  <h3>Absentee voting is on track to dwarf past elections</h3>
   <svg viewbox="0 0 {width} {height}" id={id} style="width: 100%; height: 100%;" ></svg>
 </div>
 

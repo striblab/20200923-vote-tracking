@@ -1,0 +1,37 @@
+.days-left-header {
+  text-align: center;
+  margin: 2em;
+}
+
+.days-left-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+.days-left {
+
+}
+
+.preregister-days,
+.mailing-days {
+  display: block;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.detail-date {
+  display: block;
+  text-align: center;
+}
+
+.date-explainer {
+  display: block;
+  padding: 0.5em 4em;
+  text-align: center;
+}
+
+.small {
+  font-size: 0.8em;
+  padding: 0.5em 6em;
+}
