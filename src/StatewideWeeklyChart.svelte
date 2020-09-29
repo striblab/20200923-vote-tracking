@@ -9,6 +9,7 @@
   export let data_2018;
   export let id;
   export let window_width;
+  export let x_axis_labels;
 
   $: {
     resp_width = window_width;
@@ -25,41 +26,21 @@
   let selector = '#' + id
   // let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   let x_values = []
-  const x_axis_labels = [
-    {'date': new Date(moment('2020-09-25').tz('America/Chicago')), 'weeks_away': 6, 'label': '6 weeks away'},
-    {'date': new Date(moment('2020-10-02').tz('America/Chicago')), 'weeks_away': 5, 'label': '5 weeks away'},
-    {'date': new Date(moment('2020-10-09').tz('America/Chicago')), 'weeks_away': 4, 'label': '4 weeks away'},
-    {'date': new Date(moment('2020-10-16').tz('America/Chicago')), 'weeks_away': 3, 'label': '3 weeks away'},
-    {'date': new Date(moment('2020-10-23').tz('America/Chicago')), 'weeks_away': 2, 'label': '2 weeks away'},
-    {'date': new Date(moment('2020-10-30').tz('America/Chicago')), 'weeks_away': 1, 'label': '1 week away'},
-    {'date': new Date(moment('2020-11-02').tz('America/Chicago')), 'weeks_away': 0, 'label': ''},
-    {'date': new Date(moment('2020-11-03').tz('America/Chicago')), 'weeks_away': 'election_day', 'label': 'Election Day'},
-    {'date': new Date(moment('2020-11-06').tz('America/Chicago')), 'weeks_away': '', 'label': ''}
-  ]
 
-  const set_2020_dates = function (year_data) {
-    year_data.forEach(element => element.date_2020 = x_axis_labels.find(label => label.weeks_away == element.weeks_away).date);
-  }
+  // let formatWeek = d3.timeFormat("%e");
+  // let formatMonth = d3.timeFormat("%b");
+  // let formatMillisecond = d3.timeFormat(".%L")
+  // let formatDay = d3.timeFormat("%A")
+  //
+  // let formatDate = d3.timeFormat("%b %e");
 
-  set_2020_dates(data_2018);
-
-  let chart_type = "new";
-
-  let formatWeek = d3.timeFormat("%e");
-  let formatMonth = d3.timeFormat("%b");
-  let formatMillisecond = d3.timeFormat(".%L")
-  let formatDay = d3.timeFormat("%A")
-
-  let formatDate = d3.timeFormat("%b %e");
-
-  let tooltipResults;
-  let x0;
-  let y0;
-  let i;
-  let line_view;
-  let tooltipWidth;
-  let tooltipHeight;
-  // x_axis_labels.forEach(element => console.log(element.date, element.date.getTime()));
+  // let tooltipResults;
+  // let x0;
+  // let y0;
+  // let i;
+  // let line_view;
+  // let tooltipWidth;
+  // let tooltipHeight;
 
   function processWeeksAway(input) {
     // console.log(input, input.getTime())
@@ -71,8 +52,6 @@
       return ''
     }
   }
-
-
 
   let formatTooltipDate = d3.timeFormat("%b %e");
 
@@ -177,9 +156,9 @@
         .attr('cy', d => y(d.ballots_accepted))
         .attr('r', 3)
 
-      add_year_total(svg, 'general_2016', 676722, '2016 total (general)');
-      add_year_total(svg, 'general_2018', 638581, '2018 total (general)');
-      add_year_total(svg, 'primary_2020', 543649, '2020 total (Aug. primary)');
+      add_year_total(svg, 'general_2016', 676722, '2016 absentee total (general)');
+      add_year_total(svg, 'general_2018', 638581, '2018 absentee total (general)');
+      add_year_total(svg, 'primary_2020', 543649, '2020 absentee total (Aug. primary)');
   }
 
   function add_year_total(svg, selector, total_ballots_accepted, label) {

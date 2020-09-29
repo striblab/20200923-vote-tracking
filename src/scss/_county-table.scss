@@ -2,10 +2,16 @@ table#county-totals {
   th,
   td {
     text-align: right;
+    padding: 0.5em 1em;
+    border-bottom: 1px solid #EEE;
   }
-  
+
   th:first-child,
   td:first-child {
     text-align: left;
+  }
+
+  td.spark-td {
+    max-width: 150px;
   }
 }
