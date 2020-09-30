@@ -8,6 +8,7 @@
 	import CountyList from './CountyList.svelte';
 	import county_obj_2018 from './scraper/json/county-list-2018.json';
 
+	// This is used by several of the modules to map 2020 dates to "weeks to go" from each other year.
 	const date_label_lookup = [
     {'date': new Date(moment('2020-09-25').tz('America/Chicago')), 'weeks_away': 6, 'label': '6 weeks away'},
     {'date': new Date(moment('2020-10-02').tz('America/Chicago')), 'weeks_away': 5, 'label': '5 weeks away'},
@@ -24,6 +25,7 @@
     year_data.forEach(element => element.date_2020 = date_label_lookup.find(label => label.weeks_away == element.weeks_away).date);
   }
 
+	// Turn the object-based county JSON into an array
 	const reshape_county_list = function (obj) {
 		var out_array = [];
 		for (const [key, value] of Object.entries(obj)) {
@@ -36,6 +38,7 @@
 		return out_array;
 	}
 
+	// Tag weekly data from previous years with a 2020 date for chart placement/comparison
 	set_2020_dates(county_obj_2018.ts_statewide);
 	let county_list_2018 = reshape_county_list(county_obj_2018);
 	// Tag dates for each county's time series

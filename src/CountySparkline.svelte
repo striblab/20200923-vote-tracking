@@ -8,7 +8,6 @@
 	export let data_2020;
 	export let data_2018;
 	export let x_axis_labels;
-	console.log(data_2018);
 
 	let width = 150;
 	let height = 50;
