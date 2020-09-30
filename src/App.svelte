@@ -5,6 +5,7 @@
 	import DaysLeft from './DaysLeft.svelte';
 	import StatewideData from './StatewideData.svelte';
 	import StatewideWeeklyChart from './StatewideWeeklyChart.svelte';
+	import MappersRow from './MappersRow.svelte';
 	import CountyList from './CountyList.svelte';
 	import county_obj_2018 from './scraper/json/county-list-2018.json';
 	import statewide_timeseries_2016 from './scraper/json/statewide-list-2016.json';
@@ -80,6 +81,7 @@
 		id='statewide-trend-chart'
 		x_axis_labels={date_label_lookup}
 	/>
+	<MappersRow/>
 	<CountyList {county_data_2020} county_data_2018={county_list_2018} x_axis_labels={date_label_lookup}/>
 {:catch error}
 	<p style="color: red">Something bad happened</p>

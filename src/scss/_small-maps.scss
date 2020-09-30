@@ -1,0 +1,17 @@
+.iso-map {
+  width: 150px;
+}
+
+svg {
+  .area-feature {
+    fill: #EEE;
+    // stroke: #DDD;
+    stroke-width: 2px;
+  }
+
+  .highlight-feature {
+    fill: #CCC;
+    stroke: #EEE;
+  }
+
+}
