@@ -1,5 +1,6 @@
 <script>
 	import CountySparkline from './CountySparkline.svelte';
+	import county_results_history from './scraper/json/county-results-history.json';
 
 	import {intcomma} from 'journalize';
   import moment from 'moment-timezone';
@@ -30,13 +31,25 @@
 		return change_sign + (100 * pct_change).toFixed(1) + '%'
 	}
 
+	const winner_2012 = function(county_name) {
+		var county_obj = county_results_history.find(c => c.county.toLowerCase() == county_name.toLowerCase());
+		return county_obj.winner_2012 == 'D' ? '<span class="winner-d">Obama</span>' : '<span class="winner-r">Romney</span>';
+	}
+
+	const winner_2016 = function(county_name) {
+		var county_obj = county_results_history.find(c => c.county.toLowerCase() == county_name.toLowerCase());
+		return county_obj.winner_2016 == 'D' ? '<span class="winner-d">Clinton</span>' : '<span class="winner-r">Trump</span>';
+	}
+
 </script>
 
 <h2>Absentee voting by county</h2>
 <table id="county-totals">
   <tr>
     <th>County</th>
-    <th>Ballots requested</th>
+		<th>Winner 2012</th>
+		<th>Winner 2016</th>
+		<th>Ballots requested</th>
     <th>Ballots accepted</th>
 		<th>% of 2018<br/>({current_week} weeks to go)</th>
 		<th></th>
@@ -44,6 +57,8 @@
   {#each county_data_2020 as county, i}
   <tr>
     <td>{county.county_name}</td>
+		<td>{@html winner_2012(county.county_name)}</td>
+		<td>{@html winner_2016(county.county_name)}</td>
     <td>{intcomma(county.apps_submitted_latest)}</td>
     <td>{intcomma(county.ballots_accepted_latest)}</td>
 		<td>{pct_to_date(

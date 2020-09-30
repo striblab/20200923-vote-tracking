@@ -14,4 +14,20 @@ table#county-totals {
   td.spark-td {
     max-width: 150px;
   }
+
+  .winner-d {
+    font-size: 0.8em;
+    background-color: #AED6F1;
+    padding: 1.5px 4px;
+    transition: 0.5s all;
+    border-radius: 5px;
+  }
+
+  .winner-r {
+    font-size: 0.8em;
+    background-color: #F5B7B1;
+    padding: 1.5px 4px;
+    transition: 0.5s all;
+    border-radius: 5px;
+  }
 }
