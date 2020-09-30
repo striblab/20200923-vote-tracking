@@ -12,7 +12,7 @@
 	let current_week = x_axis_labels.find(x => x.date.getTime() == new Date(moment(county_data_2020[0].date_latest).tz('America/Chicago')).getTime()).weeks_away
 
 	const get_county_prev_year = function (data, county_name) {
-		console.log(county_name)
+		// console.log(county_name)
 		return data.find(elem => elem.county_name.toLowerCase() == county_name.toLowerCase())
 	}
 
@@ -21,7 +21,7 @@
 	}
 
 	const pct_to_date = function (accepted_2020, accepted_prev_year_to_date) {
-		console.log(accepted_2020, accepted_prev_year_to_date);
+		// console.log(accepted_2020, accepted_prev_year_to_date);
 		if (accepted_prev_year_to_date == 0 || accepted_2020 == 0) {
 			return 'N/A'
 		} else {
