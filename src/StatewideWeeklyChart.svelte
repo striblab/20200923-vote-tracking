@@ -7,9 +7,12 @@
 
   export let data;
   export let data_2018;
+  export let data_2016;
   export let id;
   export let window_width;
   export let x_axis_labels;
+
+  console.log(data_2016);
 
   $: {
     resp_width = window_width;
@@ -120,6 +123,21 @@
       .call(g => g.selectAll(".tick text")
         .attr("x", 4)
         .attr("dy", -4))
+
+    // 2016
+    svg.append("path")
+      .datum(data_2016)
+      .attr('class', 'accepted accepted-2016')
+      .attr("d", line_2018)
+
+    svg.append("g")
+      .selectAll('circle')
+      .data(data_2016)
+      .join("circle")
+        .attr('class', 'accepted circle-2016')
+        .attr('cx', d => x(new Date(moment(d.date_2020).tz('America/Chicago'))))
+        .attr('cy', d => y(d.ballots_accepted))
+        .attr('r', 3)
 
     // 2018
     svg.append("path")

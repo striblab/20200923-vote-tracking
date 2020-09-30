@@ -1,0 +1,11 @@
+{
+  "ts_statewide": [
+    {"weeks_away": 6, "ballots_accepted": 14225},
+    {"weeks_away": 5, "ballots_accepted": 46467},
+    {"weeks_away": 4, "ballots_accepted": 88593},
+    {"weeks_away": 3, "ballots_accepted": 150973},
+    {"weeks_away": 2, "ballots_accepted": 250123},
+    {"weeks_away": 1, "ballots_accepted": 415986},
+    {"weeks_away": "election_day", "ballots_accepted": 678336}
+  ]
+}
