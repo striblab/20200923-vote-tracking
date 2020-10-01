@@ -11,14 +11,14 @@
 
 	// This is used by several of the modules to map 2020 dates to "weeks to go" from each other year.
 	const date_label_lookup = [
-    {'date': new Date(moment('2020-09-25').tz('America/Chicago')), 'weeks_away': 6, 'label': '6 weeks away'},
-    {'date': new Date(moment('2020-10-02').tz('America/Chicago')), 'weeks_away': 5, 'label': '5 weeks away'},
-    {'date': new Date(moment('2020-10-09').tz('America/Chicago')), 'weeks_away': 4, 'label': '4 weeks away'},
-    {'date': new Date(moment('2020-10-16').tz('America/Chicago')), 'weeks_away': 3, 'label': '3 weeks away'},
-    {'date': new Date(moment('2020-10-23').tz('America/Chicago')), 'weeks_away': 2, 'label': '2 weeks away'},
-    {'date': new Date(moment('2020-10-30').tz('America/Chicago')), 'weeks_away': 1, 'label': '1 week away'},
+    {'date': new Date(moment('2020-09-25').tz('America/Chicago')), 'weeks_away': 6, 'label': '6 WEEKS'},
+    {'date': new Date(moment('2020-10-02').tz('America/Chicago')), 'weeks_away': 5, 'label': '5 WEEKS'},
+    {'date': new Date(moment('2020-10-09').tz('America/Chicago')), 'weeks_away': 4, 'label': '4 WEEKS'},
+    {'date': new Date(moment('2020-10-16').tz('America/Chicago')), 'weeks_away': 3, 'label': '3 WEEKS'},
+    {'date': new Date(moment('2020-10-23').tz('America/Chicago')), 'weeks_away': 2, 'label': '2 WEEKS'},
+    {'date': new Date(moment('2020-10-30').tz('America/Chicago')), 'weeks_away': 1, 'label': '1 WEEK'},
     {'date': new Date(moment('2020-11-02').tz('America/Chicago')), 'weeks_away': 0, 'label': ''},
-    {'date': new Date(moment('2020-11-03').tz('America/Chicago')), 'weeks_away': 'election_day', 'label': 'Election Day'},
+    {'date': new Date(moment('2020-11-03').tz('America/Chicago')), 'weeks_away': 'election_day', 'label': 'ELECTION'},
     {'date': new Date(moment('2020-11-06').tz('America/Chicago')), 'weeks_away': '', 'label': ''}
   ]
 

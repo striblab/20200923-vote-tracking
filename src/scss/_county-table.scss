@@ -15,6 +15,8 @@ table#county-totals {
   
   th {
     font-size:0.8em;
+    font-weight:normal;
+    text-transform: uppercase;
   }
 
   td {
@@ -31,6 +33,9 @@ table#county-totals {
     max-width: 150px;
   }
 
+  .winners {
+    text-align: left;
+  }
 
   .winner-d {
     font-size: 0.8em;

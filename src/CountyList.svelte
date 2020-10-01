@@ -52,7 +52,7 @@
 		<th class="winners">Winner 2016</th>
 		<th>Ballots requested</th>
     <th>Ballots accepted</th>
-		<th class="current">% of 2018<br/>({current_week} weeks to go)</th>
+		<th class="current">% of 2018<br />({current_week} weeks away)</th>
 		<th></th>
   </tr>
   {#each county_data_2020 as county, i}

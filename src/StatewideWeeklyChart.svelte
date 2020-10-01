@@ -21,7 +21,7 @@
   let resp_width
   let width = 600
   let height = 400
-  let margin = ({top: 30, right: 23, bottom: 80, left: 60})
+  let margin = ({top: 30, right: 23, bottom: 30, left: 60})
 
   let svg_width
 
@@ -110,10 +110,6 @@
       .attr("transform", `translate(0,${height - margin.bottom})`)
       .attr('class', 'xAxis')
       .call(xAxis)
-        .selectAll("text")
-        .attr("y", 0)
-        .attr("x", -40)
-        .attr("transform", "rotate(-40)")
 
 
     svg.selectAll(".xAxis .tick text").attr("y", 8);
@@ -205,3 +201,4 @@
 </div>
 
 <p class="footnote">Note: weekly numbers reflect accepted absentee votes by mail and in-person</p>
+<p>&nbsp;</p>
