@@ -22,6 +22,8 @@
 
 </script>
 
-<div class="stats">Total absentee ballots requested: <span class="highlight">{intcomma(total_ballots_requested)}</span></div>
-<div class="stats">Total absentee ballots accepted so far: <span class="highlight">{intcomma(total_ballots_accepted)}</span> ({round_pct(pct_ballots_accepted)} of all requested)</div>
+<h2>Absentee voting is on track to dwarf past elections</h2>
 <div class="updatedTime">Last update: {last_updated}</div>
+<div class="stats">Total absentee ballots requested: <span>{intcomma(total_ballots_requested)}</span></div>
+<div class="stats highlight-under">Total absentee ballots accepted so far: <span class="highlight bolded">{intcomma(total_ballots_accepted)}</span> ({round_pct(pct_ballots_accepted)} of all requested)</div>
+

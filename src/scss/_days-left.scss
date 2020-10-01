@@ -9,10 +9,6 @@
   margin-bottom: 2em;
 }
 
-.days-left {
-
-}
-
 .preregister-days,
 .mailing-days {
   display: block;
@@ -29,6 +25,14 @@
   font-weight:300;
 }
 
+.bolded {
+  font-weight:bold;
+}
+
+.highlight-under {
+  border-bottom: 4px solid #7D739C;
+}
+
 .detail-date {
   display: block;
   text-align: center;
@@ -38,8 +42,15 @@
   display: block;
   padding: 0.5em 4em;
   text-align: center;
+  font-size: 15px;
+  text-transform:uppercase;
+  font-weight:bold;
+  letter-spacing: 1px;
 }
 
 .small {
+  display: block;
+  padding: 0.5em 4em;
   font-size: 0.8em;
+  text-align:center;
 }

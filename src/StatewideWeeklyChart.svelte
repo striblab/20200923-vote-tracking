@@ -200,9 +200,7 @@
   });
 </script>
 
-<p>&nbsp;</p>
 <div>
-  <h2>Absentee voting is on track to dwarf past elections</h2>
   <svg viewbox="0 0 {width} {height}" id={id} style="width: 100%; height: 100%;" ></svg>
 </div>
 

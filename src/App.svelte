@@ -67,8 +67,6 @@
 
 <DaysLeft/>
 
-<h2>Absentee votes accepted</h2>
-
 {#await getCountyData()}
 	<p>Loading data ...</p>
 {:then county_data_2020}
