@@ -110,7 +110,7 @@
 		id='statewide-trend-chart'
 		x_axis_labels={date_label_lookup}
 	/>
-	<MappersRow {county_data_2020}/>
+	<MappersRow {county_data_2020} {current_week}/>
 	<CountyList {county_data_2020} county_data_2018={county_list_2018} x_axis_labels={date_label_lookup} {current_week}/>
 {:catch error}
 	<p style="color: red">Something bad happened</p>

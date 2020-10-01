@@ -1,6 +1,7 @@
 <script>
   import { geoPath } from "d3-geo";
   import { feature } from 'topojson';
+  import {ckmeans} from 'simple-statistics'
   import * as d3 from 'd3';
   import mn from './scraper/json/mn.json';
 
@@ -11,6 +12,7 @@
 
   export let show_var;  // Which var to check
   export let show_val;  // What that var should equal
+  export let map_type = 'pct_change';
   export let county_results_history;
   export let county_data_2020;
 
@@ -22,23 +24,38 @@
 
   let resp_width;
 
-  let min_change = Math.min.apply(
-    Math, county_data_2020.filter(o => o.pct_to_date != 'N/A').map(function(o) { return o.pct_to_date; })
-  );
+  let pct_extent = d3.extent(county_data_2020.filter(o => o.pct_to_date != 'N/A'), d => d.pct_to_date);
+  let accepted_extent = d3.extent(county_data_2020, d => d.ballots_accepted_latest);
+  console.log(accepted_extent);
 
-  let max_change = Math.max.apply(
-    Math, county_data_2020.filter(o => o.pct_to_date != 'N/A').map(function(o) { return o.pct_to_date; })
-  );
+  var pct_change_color = d3.scaleDiverging()
+    .domain([-300, 0, 300])
+    // .domain([pct_extent[0], 0, pct_extent[1]])
+    .interpolator(d3.interpolatePRGn);
 
-  var color = d3.scaleLinear()
-    .domain([min_change, 0, max_change])
-    .range(['#4A4061', "white", '#3C8259']);
+  // var raw_count_color = d3.scaleSequential()
+  //   // .domain([-300, 0, 300])
+  //   .domain([accepted_extent[0], accepted_extent[1]])
+  //   .interpolator(d3.interpolateGreens);
+
+  let means = ckmeans(county_data_2020.map(d => d.ballots_accepted_latest), 5);
+  let ckmeans_stops = means.map(group => Math.max(...group));
+  ckmeans_stops.unshift(1);
+  console.log(ckmeans_stops);
+  var raw_count_color = d3.scaleThreshold()
+    .domain(ckmeans_stops)
+    .range(['#CECECE', '#D6E6CC', '#B6E3A6', '#8CBF82', '#5A9E65', '#3C8259']);
 
   function getFillColor(county_name) {
     var bool_show_county = show_counties.indexOf(county_name.toLowerCase()) != -1;
     if (bool_show_county) {
-      var pct_to_date = county_data_2020.find(c => c.county_name.toLowerCase() == county_name.toLowerCase()).pct_to_date;
-      return color(pct_to_date);
+      if (map_type == 'pct_change') {
+        var pct_to_date = county_data_2020.find(c => c.county_name.toLowerCase() == county_name.toLowerCase()).pct_to_date;
+        return pct_change_color(pct_to_date);
+      } else {
+        var ballots_accepted = county_data_2020.find(c => c.county_name.toLowerCase() == county_name.toLowerCase()).ballots_accepted_latest;
+        return raw_count_color(ballots_accepted);
+      }
     }
   }
 
@@ -52,29 +69,6 @@
     .fitSize([width, height], {type: "FeatureCollection", features: land});
 
   let path = d3.geoPath().projection(projection);
-
-  // const rScale = d3.scaleSqrt()
-  //         .domain([0, max_cases])
-  //         .range([0, 25]);
-
-  $: {
-    // if (counties_latest.length > 0) {
-    //   county_centroids = land.map(function (feature) {
-    //     var record = counties_latest.find(element => element.county_fips == feature.properties.GEOID);
-    //     return {
-    //       'positive_tests': record.total_positive_tests,
-    //       'deaths': record.total_deaths,
-    //       'cases_1k': record.cases_per_1k,
-    //       'deaths_1k': record.deaths_per_1k,
-    //       'centroid': path.centroid(feature),
-    //       'fips': feature.properties.GEOID,
-    //       'name': record.county_name
-    //     };
-    //   });
-    // } else {
-    //   county_centroids = [];
-    // }
-  }
 
 </script>
 
