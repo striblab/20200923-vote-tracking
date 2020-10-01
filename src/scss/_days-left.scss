@@ -20,6 +20,15 @@
   text-align: center;
 }
 
+.number {
+  font-size:6em;
+}
+
+.highlight {
+  color: #7D739C;
+  font-weight:300;
+}
+
 .detail-date {
   display: block;
   text-align: center;
@@ -33,5 +42,4 @@
 
 .small {
   font-size: 0.8em;
-  padding: 0.5em 6em;
 }

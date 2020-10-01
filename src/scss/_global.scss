@@ -2,17 +2,28 @@ html, body {
 	position: relative;
 	width: 100%;
 	height: 100%;
+	overflow-x: hidden;
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
+	overflow-y: auto !important;
 }
 
 body {
 	color: #333;
 	margin: 0;
-	padding: 8px;
 	box-sizing: border-box;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
-a {
+.container-lg {
+	max-width:95%;
+	margin: auto;
+	width:800px;
+}
+
+.container-lg a {
 	color: rgb(0,100,200);
 	text-decoration: none;
 }
@@ -58,4 +69,113 @@ button:active {
 
 button:focus {
 	border-color: #666;
+}
+
+.footnote {
+	max-width:100%;
+    font-family: "Benton Sans", sans-serif;
+    font-size: 12px;
+    color: #989898;
+    margin-top: 16px !important;
+	margin-bottom: 16px !important;
+}
+
+.hero-override .article-headline {
+    font-family: "Whitman Display",Georgia,Times,serif;
+    font-size: 60px !important;
+    font-weight: 400 !important;
+    text-align: center;
+    letter-spacing: -1.85px;
+    line-height: 102%;
+    margin-top: 0;
+}
+
+.hero-override .article-headline, .clean-sheet .hero-override .article-headline {
+    max-width: 970px;
+    margin: auto;
+}
+
+.elexLogo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 35px  !important;
+	margin-top: 50px  !important;
+  }
+  
+.elexLogo img {
+	width: 50px;
+}
+  
+.elexLogo .text {
+	font-family: "Benton Sans", sans-serif !important;
+	margin-right: 5px;
+}
+  
+.elexLogo h3 {
+	font-family: "Popular", sans-serif !important;
+	margin-bottom: 0 !important;
+	margin-top: 10px !important;
+	font-size: 15px !important;
+	font-weight: bold !important;
+}
+  
+
+.hero-override p {
+	max-width: 450px;
+	margin: 0 auto;
+	font-size: 15px;
+	text-align: center;
+    margin-top: 15px;
+	margin-bottom: 25px;
+	line-height:140%;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+}
+
+h3 {
+    font-family: "Benton Sans", sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size:1.5em;
+	font-weight:900;
+	margin-bottom: 10px;
+}
+
+.stats {
+	margin-bottom:15px;
+	font-size:20px;
+}
+
+#credits {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 125px;
+}
+
+#credits p {
+	max-width:100%;
+    font-family: "Benton Sans", sans-serif;
+    font-size: 12px;
+    color: #989898;
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
+}
+
+#county-totals, table {
+    border-collapse: collapse !important;
+  }
+
+.updatedTime {
+	font-family: "Benton Sans", sans-serif;
+    font-size: 11px !important;
+    text-transform: uppercase;
+    color: #888888;
+    margin-top: 0;
+    margin-bottom: 10px;
 }

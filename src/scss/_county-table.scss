@@ -3,7 +3,23 @@ table#county-totals {
   td {
     text-align: right;
     padding: 0.5em 1em;
-    border-bottom: 1px solid #EEE;
+  }
+
+  #county-totals, table {
+    border-collapse: collapse !important;
+  }
+
+  tr {
+    border-bottom: 2px solid #EEE;
+  }
+  
+  th {
+    font-size:0.8em;
+  }
+
+  td {
+    vertical-align: middle;
+    font-size: 15px;
   }
 
   th:first-child,
@@ -15,19 +31,37 @@ table#county-totals {
     max-width: 150px;
   }
 
+
   .winner-d {
     font-size: 0.8em;
+    font-weight:bold;
     background-color: #AED6F1;
-    padding: 1.5px 4px;
+    padding: 4px;
     transition: 0.5s all;
     border-radius: 5px;
+    color:#ffffff;
   }
 
   .winner-r {
     font-size: 0.8em;
+    font-weight:bold;
     background-color: #F5B7B1;
-    padding: 1.5px 4px;
+    padding: 4px;
     transition: 0.5s all;
     border-radius: 5px;
+    color:#ffffff;
+  }
+}
+
+
+    
+@media (max-width:600px) {
+  .winners, .current {
+    display:none;
+  }
+
+  #county-totals {
+    font-size:0.8em;
+    max-width: 95%;
   }
 }

@@ -43,25 +43,26 @@
 
 </script>
 
+<p>&nbsp;</p>
 <h2>Absentee voting by county</h2>
 <table id="county-totals">
   <tr>
     <th>County</th>
-		<th>Winner 2012</th>
-		<th>Winner 2016</th>
+		<th class="winners">Winner 2012</th>
+		<th class="winners">Winner 2016</th>
 		<th>Ballots requested</th>
     <th>Ballots accepted</th>
-		<th>% of 2018<br/>({current_week} weeks to go)</th>
+		<th class="current">% of 2018<br/>({current_week} weeks to go)</th>
 		<th></th>
   </tr>
   {#each county_data_2020 as county, i}
   <tr>
     <td>{county.county_name}</td>
-		<td>{@html winner_2012(county.county_name)}</td>
-		<td>{@html winner_2016(county.county_name)}</td>
+		<td class="winners">{@html winner_2012(county.county_name)}</td>
+		<td class="winners">{@html winner_2016(county.county_name)}</td>
     <td>{intcomma(county.apps_submitted_latest)}</td>
     <td>{intcomma(county.ballots_accepted_latest)}</td>
-		<td>{pct_to_date(
+		<td class="current">{pct_to_date(
 				county.ballots_accepted_latest,
 				get_accepted_by_week(get_county_prev_year(county_data_2018, county.county_name).ts, current_week)
 			)}</td>
