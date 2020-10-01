@@ -1,3 +1,16 @@
+#map-row {
+  display: flex;
+
+  .map-item {
+    margin: 0 1em;
+
+    h4 {
+      font-size: 0.8em;
+      margin-bottom: 0.2em;
+    }
+  }
+}
+
 .iso-map {
   width: 150px;
 }

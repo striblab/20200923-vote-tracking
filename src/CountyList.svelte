@@ -16,8 +16,12 @@
 	}
 
 	const display_pct = function (pct_change) {
-		var change_sign = pct_change >= 0 ? '+' : '';
-		return change_sign + pct_change + '%'
+		if (pct_change == 'N/A') {
+			return pct_change
+		} else {
+			var change_sign = pct_change >= 0 ? '+' : '';
+			return change_sign + pct_change.toFixed(1) + '%'
+		}
 	}
 
 	const winner_2012 = function(county_name) {

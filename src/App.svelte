@@ -45,8 +45,7 @@
 		} else {
 			var pct_change = (accepted_2020 - accepted_prev_year_to_date) / accepted_prev_year_to_date
 		}
-		var change_sign = pct_change >= 0 ? '+' : '';
-		return (100 * pct_change).toFixed(1)
+		return 100 * pct_change
 	}
 
 	// Turn the object-based county JSON into an array
@@ -111,7 +110,7 @@
 		id='statewide-trend-chart'
 		x_axis_labels={date_label_lookup}
 	/>
-	<MappersRow/>
+	<MappersRow {county_data_2020}/>
 	<CountyList {county_data_2020} county_data_2018={county_list_2018} x_axis_labels={date_label_lookup} {current_week}/>
 {:catch error}
 	<p style="color: red">Something bad happened</p>
