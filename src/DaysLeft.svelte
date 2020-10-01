@@ -13,15 +13,16 @@
 <div class="days-left-header">In Minnesota you have ...</div>
 <div class="days-left-group">
   <div class="days-left">
-  	<span class="preregister-days">{time_to_preregister} days</span>
-    <span class="date-explainer">left to register early</span>
-  	<span class="detail-date">({registration_deadline.format('MMM D, YYYY [at] h:mm a')})</span>
-  	<span class="date-explainer small">(you can also register at the polls on Election Day)</span>
+    <span class="preregister-days number">{time_to_preregister}</span>
+    <span class="date-explainer">days remain to<br />register early</span>
+  	<span class="detail-date">({registration_deadline.format('MMM D, YYYY')})</span>
+  	<span class="small">You can also register at the polls on Election Day</span>
   </div>
   <div class="days-left">
-  	<span class="mailing-days">{time_to_mail_ballot} days</span>
-    <span class="date-explainer">left to mail your ballot</span>
-    <span class="detail-date">({election_day.format('MMM D, YYYY [at] h:mm a')})</span>
-  	<span class="date-explainer small">(you can also drop your ballot off by Election Day)</span>
+    <span class="mailing-days number">{time_to_mail_ballot}</span>
+    <span class="date-explainer">days remain to<br />mail your ballot</span>
+    <span class="detail-date">({election_day.format('MMM D, YYYY')})</span>
+  	<span class="small">You can also drop your ballot off by Election Day</span>
   </div>
 </div>
+<p>&nbsp;</p>

@@ -2,24 +2,49 @@ svg {
   text {
     font-family: "Benton Sans", sans-serif;
     font-size: 8px;
+    stroke-width: 0.5px
   }
 
-  path.accepted {
+  path.accepted-2018 {
     opacity: 1;
     fill: none;
-    stroke: #CCCCCC;
-    stroke-width: 1.5;
+    stroke: #aaaaaa;
+    stroke-width: 1;
     stroke-linejoin: round;
     stroke-linecap: round;
   }
 
-  path.accepted-2020 {
-    stroke: #3A6B9A;
+  .circle-2018  {
+    fill: #FFF;
+    stroke: #aaaaaa;
+    opacity: 1;
+    stroke-width: 1.5px
   }
 
-  circle.accepted {
+  path.accepted-2016 {
+    opacity: 1;
+    fill: none;
+    stroke: #cccccc;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+
+  .circle-2016  {
     fill: #FFF;
-    stroke: #a9a9a9;
+    stroke: #cccccc;
+    opacity: 1;
+    stroke-width: 1.5px
+  }
+
+  path.accepted-2020 {
+    stroke: #7D739C;
+    stroke-width: 3px
+  }
+
+  .circle-2020 {
+    fill: #7D739C !important;
+    stroke: #7D739C !important;
     opacity: 1;
     stroke-width: 1.5px
   }
@@ -27,22 +52,29 @@ svg {
   line.year-total {
     opacity: 1;
     stroke: #333;
-    stroke-width: 1;
+    stroke-width: 0.2;
     stroke-linejoin: round;
     stroke-linecap: round;
     stroke-dasharray: 4 2;
   }
 
   text.year-total-label {
-    // font-family: "Benton Sans", sans-serif;
-    // font-size: 9px;
+    font-family: "Benton Sans", sans-serif;
+    font-size: 9px;
     text-anchor: middle;
-    // stroke: #FFFFFF;
-    // stroke-width: 5px;
-    fill: #333;
+    stroke: #a9a9a9;
+    stroke-width: 0;
+    fill: #A3A3A3;
   }
 }
 
 svg.sparkline circle.accepted {
   stroke-width: 1px
+}
+
+@media (max-width:600px) {
+  text {
+    font-size: 14px !important;
+  }
+
 }

@@ -1,6 +1,10 @@
 .days-left-header {
   text-align: center;
   margin: 2em;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .days-left-group {
@@ -9,15 +13,28 @@
   margin-bottom: 2em;
 }
 
-.days-left {
-
-}
-
 .preregister-days,
 .mailing-days {
   display: block;
   font-size: 2.5em;
   text-align: center;
+}
+
+.number {
+  font-size:6em;
+}
+
+.highlight {
+  color: #7D739C;
+  font-weight:300;
+}
+
+.bolded {
+  font-weight:bold;
+}
+
+.highlight-under {
+  border-bottom: 4px solid #7D739C;
 }
 
 .detail-date {
@@ -29,9 +46,21 @@
   display: block;
   padding: 0.5em 4em;
   text-align: center;
+  font-size: 15px;
+  text-transform:uppercase;
+  font-weight:bold;
+  letter-spacing: 1px;
 }
 
 .small {
+  display: block;
+  padding: 0.5em 4em;
   font-size: 0.8em;
-  padding: 0.5em 6em;
+  text-align:center;
+}
+
+@media (max-width:600px) {
+  .date-explainer {
+    padding:0;
+  }
 }

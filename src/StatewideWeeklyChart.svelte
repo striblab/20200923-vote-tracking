@@ -111,6 +111,7 @@
       .attr('class', 'xAxis')
       .call(xAxis)
 
+
     svg.selectAll(".xAxis .tick text").attr("y", 8);
 
     svg.append("g")
@@ -186,7 +187,7 @@
     svg.append('text')
       .attr('class', 'year-total-label ' + selector)
       .attr('x', (width / 2))
-      .attr('y', y(total_ballots_accepted) - 5)
+      .attr('y', y(total_ballots_accepted) - 4)
       .text(label)
   }
 
@@ -196,8 +197,8 @@
 </script>
 
 <div>
-  <h3>Absentee voting is on track to dwarf past elections</h3>
   <svg viewbox="0 0 {width} {height}" id={id} style="width: 100%; height: 100%;" ></svg>
 </div>
 
-<p class="footnote">This is a footnote</p>
+<p class="footnote">Note: weekly numbers reflect accepted absentee votes by mail and in-person</p>
+<p>&nbsp;</p>

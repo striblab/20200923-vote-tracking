@@ -36,25 +36,26 @@
 
 </script>
 
+<p>&nbsp;</p>
 <h2>Absentee voting by county</h2>
 <table id="county-totals">
   <tr>
     <th>County</th>
-		<th>Winner 2012</th>
-		<th>Winner 2016</th>
+		<th class="winners">Winner 2012</th>
+		<th class="winners">Winner 2016</th>
 		<th>Ballots requested</th>
     <th>Ballots accepted</th>
-		<th>% of 2018<br/>({current_week} weeks to go)</th>
+		<th class="current">% of 2018<br />({current_week} weeks away)</th>
 		<th></th>
   </tr>
   {#each county_data_2020 as county, i}
   <tr>
     <td>{county.county_name}</td>
-		<td>{@html winner_2012(county.county_name)}</td>
-		<td>{@html winner_2016(county.county_name)}</td>
+		<td class="winners">{@html winner_2012(county.county_name)}</td>
+		<td class="winners">{@html winner_2016(county.county_name)}</td>
     <td>{intcomma(county.apps_submitted_latest)}</td>
     <td>{intcomma(county.ballots_accepted_latest)}</td>
-		<td>{display_pct(county.pct_to_date)}</td>
+		<td class="current">{display_pct(county.pct_to_date)}</td>
 		<td class="spark-td">
 				<CountySparkline
 					name={county.county_name}
