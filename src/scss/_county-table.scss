@@ -17,6 +17,7 @@ table#county-totals {
     font-size:.8em;
     font-weight:normal;
     text-transform: uppercase;
+    vertical-align: bottom;
   }
 
   td {
@@ -34,7 +35,7 @@ table#county-totals {
   }
 
   td.spark-td {
-    max-width: 150px;
+    max-width: 200px;
   }
 
   .winners {
@@ -43,22 +44,20 @@ table#county-totals {
 
   .winner-d {
     font-size: 0.8em;
-    font-weight:bold;
-    background-color: #AED6F1;
-    padding: 4px;
+    background-color: #D6EAF8;
+    padding: 6px;
     transition: 0.5s all;
     border-radius: 5px;
-    color:#ffffff;
+    color:#000000;
   }
 
   .winner-r {
     font-size: 0.8em;
-    font-weight:bold;
-    background-color: #F5B7B1;
-    padding: 4px;
+    background-color: #F2D7D5;
+    padding: 6px;
     transition: 0.5s all;
     border-radius: 5px;
-    color:#ffffff;
+    color:#000000;
   }
 }
 

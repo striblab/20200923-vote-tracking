@@ -77,3 +77,4 @@
   </tr>
   {/each}
   </table>
+	<p class="footnote">Note: counties without a percent change listed lacked accepted absentee votes in the first week of 2018's data.</p>
