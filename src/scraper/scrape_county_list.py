@@ -19,7 +19,7 @@ if r.ok:
 
     # Get data date
     data_date_node = soup.find(text=re.compile("Accepted ballots \(\d+/\d+/\d+\)"))
-    # data_date = datetime.datetime.strptime((re.search(r'(\d+/\d+/\d+)', data_date_node).group(1)), '%m/%d/%y').date()
+    data_date = datetime.datetime.strptime((re.search(r'(\d+/\d+/\d+)', data_date_node).group(1)), '%m/%d/%y').date()
     # Temp for dummy data
     # data_date = datetime.datetime.strptime('10/02/20', '%m/%d/%y').date()
     # print(data_date)
