@@ -22,8 +22,10 @@
 
 </script>
 
-<h2>Absentee voting is on track to dwarf past elections</h2>
+<div class="chartTitle">Absentee voting is on track to dwarf past elections</div>
 <div class="updatedTime">Last update: {last_updated}</div>
+<p class="footnote">Note: weekly numbers reflect accepted absentee votes by mail and in-person</p>
 <div class="stats">Total absentee ballots requested: <span class="bolded">{intcomma(total_ballots_requested)}</span></div>
 <div class="stats">Total absentee ballots accepted so far: <span class="highlight highlight-under bolded">{intcomma(total_ballots_accepted)}</span> ({round_pct(pct_ballots_accepted)} of all requested)</div>
+<div class="stats">So far absentee ballots accepted this year are up about 600% from <span class="highlight-2016">2016</span> and 700% from <span class="highlight-2018">2018</span>.</div>
 

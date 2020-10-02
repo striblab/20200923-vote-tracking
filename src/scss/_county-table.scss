@@ -14,7 +14,7 @@ table#county-totals {
   }
   
   th {
-    font-size:.72em;
+    font-size:.8em;
     font-weight:normal;
     text-transform: uppercase;
   }
@@ -65,12 +65,16 @@ table#county-totals {
 
     
 @media (max-width:600px) {
-  .winners, .current {
+  .winners, .spark-td {
     display:none;
   }
 
   #county-totals {
     font-size:0.8em;
     max-width: 95%;
+  }
+
+  .tick:nth-of-type(6n) {
+    display:none;
   }
 }

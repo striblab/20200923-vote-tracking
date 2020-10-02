@@ -23,7 +23,7 @@
 	const pct_to_date = function (accepted_2020, accepted_prev_year_to_date) {
 		// console.log(accepted_2020, accepted_prev_year_to_date);
 		if (accepted_prev_year_to_date == 0 || accepted_2020 == 0) {
-			return 'N/A'
+			return '--'
 		} else {
 			var pct_change = (accepted_2020 - accepted_prev_year_to_date) / accepted_prev_year_to_date
 		}
@@ -43,8 +43,8 @@
 
 </script>
 
-<p>&nbsp;</p>
-<h2>Absentee voting by county</h2>
+<p class="buffer">&nbsp;</p>
+<div class="chartTitle">Absentee voting by county</div>
 <table id="county-totals">
   <tr>
     <th>County</th>

@@ -20,7 +20,7 @@
 
   let resp_width
   let width = 600
-  let height = 400
+  let height = 500
   let margin = ({top: 30, right: 23, bottom: 30, left: 60})
 
   let svg_width
@@ -199,6 +199,3 @@
 <div>
   <svg viewbox="0 0 {width} {height}" id={id} style="width: 100%; height: 100%;" ></svg>
 </div>
-
-<p class="footnote">Note: weekly numbers reflect accepted absentee votes by mail and in-person</p>
-<p>&nbsp;</p>
