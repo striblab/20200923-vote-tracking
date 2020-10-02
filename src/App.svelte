@@ -80,5 +80,5 @@
 	/>
 	<CountyList {county_data_2020} county_data_2018={county_list_2018} x_axis_labels={date_label_lookup}/>
 {:catch error}
-	<p style="color: red">Something bad happened</p>
+	<p style="color: red">Data loading error. Please try refreshing the page.</p>
 {/await}
