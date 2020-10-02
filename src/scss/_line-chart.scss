@@ -1,8 +1,15 @@
 svg {
   text {
     font-family: "Benton Sans", sans-serif;
-    font-size: 8px;
-    stroke-width: 0.5px
+    font-size: 9px;
+  }
+
+  .tick line {
+    stroke-width: 0.5px !important;
+  }
+
+  .domain {
+    stroke-width: 0px !important;
   }
 
   path.accepted-2018 {
