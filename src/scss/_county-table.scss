@@ -10,11 +10,11 @@ table#county-totals {
   }
 
   tr {
-    border-bottom: 2px solid #EEE;
+    border-bottom: 1px solid #eeeeee;
   }
   
   th {
-    font-size:0.8em;
+    font-size:.72em;
     font-weight:normal;
     text-transform: uppercase;
   }
@@ -27,6 +27,10 @@ table#county-totals {
   th:first-child,
   td:first-child {
     text-align: left;
+  }
+
+  tr:first-child {
+    border-bottom: 2px solid #E8E8E8;
   }
 
   td.spark-td {
