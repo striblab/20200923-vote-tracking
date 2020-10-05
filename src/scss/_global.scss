@@ -71,6 +71,10 @@ button:focus {
 	border-color: #666;
 }
 
+.buffer { 
+	margin:35px;
+}
+
 .footnote {
 	max-width:100%;
     font-family: "Benton Sans", sans-serif;
@@ -147,9 +151,15 @@ h2 {
 	margin-bottom: 10px;
 }
 
+.chartTitle {
+    font-size:20px;
+	font-weight:bold;
+	line-height:240%;
+}
+
 .stats {
 	margin-bottom:16px;
-	font-size:20px;
+	font-size:16px;
 }
 
 #credits {

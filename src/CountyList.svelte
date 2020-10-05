@@ -17,7 +17,16 @@
 
 	const display_pct = function (pct_change) {
 		if (pct_change == 'N/A') {
-			return pct_change
+			return '--'
+
+	// const get_accepted_by_week = function (data, week) {
+	// 	return data.find(elem => elem.weeks_away == week).ballots_accepted
+	// }
+
+	// const pct_to_date = function (accepted_2020, accepted_prev_year_to_date) {
+	// 	// console.log(accepted_2020, accepted_prev_year_to_date);
+	// 	if (accepted_prev_year_to_date == 0 || accepted_2020 == 0) {
+	// 		return '--'
 		} else {
 			var change_sign = pct_change >= 0 ? '+' : '';
 			return change_sign + pct_change.toFixed(1) + '%'
@@ -36,8 +45,8 @@
 
 </script>
 
-<p>&nbsp;</p>
-<h2>Absentee voting by county</h2>
+<p class="buffer">&nbsp;</p>
+<div class="chartTitle">Absentee voting by county</div>
 <table id="county-totals">
   <tr>
     <th>County</th>
@@ -67,3 +76,4 @@
   </tr>
   {/each}
   </table>
+	<p class="footnote">Note: counties without a percent change listed lacked accepted absentee votes in the first week of 2018's data.</p>
