@@ -29,7 +29,7 @@
   console.log(accepted_extent);
 
   var pct_change_color = d3.scaleDiverging()
-    .domain([-300, 0, 300])
+    .domain([-300, 0, 1000])
     // .domain([pct_extent[0], 0, pct_extent[1]])
     .interpolator(d3.interpolatePRGn);
 
