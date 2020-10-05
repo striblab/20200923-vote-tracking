@@ -5,9 +5,12 @@
 	import DaysLeft from './DaysLeft.svelte';
 	import StatewideData from './StatewideData.svelte';
 	import StatewideWeeklyChart from './StatewideWeeklyChart.svelte';
+	import MappersRow from './MappersRow.svelte';
 	import CountyList from './CountyList.svelte';
 	import county_obj_2018 from './scraper/json/county-list-2018.json';
 	import statewide_timeseries_2016 from './scraper/json/statewide-list-2016.json';
+
+	let current_week;
 
 	// This is used by several of the modules to map 2020 dates to "weeks to go" from each other year.
 	const date_label_lookup = [
@@ -26,13 +29,38 @@
     year_data.forEach(element => element.date_2020 = date_label_lookup.find(label => label.weeks_away == element.weeks_away).date);
   }
 
+	const get_county_prev_year = function (data, county_name) {
+		// console.log(county_name)
+		return data.find(elem => elem.county_name.toLowerCase() == county_name.toLowerCase())
+	}
+
+	const get_accepted_by_week = function (data, week) {
+		return data.find(elem => elem.weeks_away == week).ballots_accepted
+	}
+
+	const pct_to_date = function (accepted_2020, accepted_prev_year_to_date) {
+		// console.log(accepted_2020, accepted_prev_year_to_date);
+		if (accepted_prev_year_to_date == 0 || accepted_2020 == 0) {
+			return 'N/A'
+		} else {
+			var pct_change = (accepted_2020 - accepted_prev_year_to_date) / accepted_prev_year_to_date
+		}
+		return 100 * pct_change
+	}
+
 	// Turn the object-based county JSON into an array
-	const reshape_county_list = function (obj) {
+	const reshape_county_list = function (obj, bool_2020) {
 		var out_array = [];
 		for (const [key, value] of Object.entries(obj)) {
 			if (key != 'ts_statewide') {
 				var item = value;
 				item['county_name'] = key;
+
+				if (bool_2020 === true) {
+					var county_2018_to_date = get_accepted_by_week(get_county_prev_year(county_list_2018, key).ts, current_week)
+					item['pct_to_date'] = pct_to_date(item.ballots_accepted_latest, county_2018_to_date)
+				}
+
 				out_array.push(item);
 			}
 		}
@@ -54,7 +82,9 @@
 		const response = await fetch("https://static.startribune.com/staging/news/projects/all/20200923-vote-tracking/json/county-list-latest.json");
 		county_obj = await response.json();
 		if (response.ok) {
-      return reshape_county_list(county_obj);
+			current_week = date_label_lookup.find(x => x.date.getTime() == new Date(moment(county_obj['Aitkin'].date_latest).tz('America/Chicago')).getTime()).weeks_away
+
+      return reshape_county_list(county_obj, true);
 		}
 	}
 
@@ -78,7 +108,8 @@
 		id='statewide-trend-chart'
 		x_axis_labels={date_label_lookup}
 	/>
-	<CountyList {county_data_2020} county_data_2018={county_list_2018} x_axis_labels={date_label_lookup}/>
+	<MappersRow {county_data_2020} {current_week}/>
+	<CountyList {county_data_2020} county_data_2018={county_list_2018} x_axis_labels={date_label_lookup} {current_week}/>
 {:catch error}
 	<p style="color: red">Data loading error. Please try refreshing the page.</p>
 {/await}

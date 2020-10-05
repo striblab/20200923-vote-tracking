@@ -8,27 +8,29 @@
   export let county_data_2020 = [];
 	export let county_data_2018 = [];
 	export let x_axis_labels;
-
-	let current_week = x_axis_labels.find(x => x.date.getTime() == new Date(moment(county_data_2020[0].date_latest).tz('America/Chicago')).getTime()).weeks_away
+	export let current_week;
 
 	const get_county_prev_year = function (data, county_name) {
 		// console.log(county_name)
 		return data.find(elem => elem.county_name.toLowerCase() == county_name.toLowerCase())
 	}
 
-	const get_accepted_by_week = function (data, week) {
-		return data.find(elem => elem.weeks_away == week).ballots_accepted
-	}
-
-	const pct_to_date = function (accepted_2020, accepted_prev_year_to_date) {
-		// console.log(accepted_2020, accepted_prev_year_to_date);
-		if (accepted_prev_year_to_date == 0 || accepted_2020 == 0) {
+	const display_pct = function (pct_change) {
+		if (pct_change == 'N/A') {
 			return '--'
+
+	// const get_accepted_by_week = function (data, week) {
+	// 	return data.find(elem => elem.weeks_away == week).ballots_accepted
+	// }
+
+	// const pct_to_date = function (accepted_2020, accepted_prev_year_to_date) {
+	// 	// console.log(accepted_2020, accepted_prev_year_to_date);
+	// 	if (accepted_prev_year_to_date == 0 || accepted_2020 == 0) {
+	// 		return '--'
 		} else {
-			var pct_change = (accepted_2020 - accepted_prev_year_to_date) / accepted_prev_year_to_date
+			var change_sign = pct_change >= 0 ? '+' : '';
+			return change_sign + pct_change.toFixed(1) + '%'
 		}
-		var change_sign = pct_change >= 0 ? '+' : '';
-		return change_sign + (100 * pct_change).toFixed(1) + '%'
 	}
 
 	const winner_2012 = function(county_name) {
@@ -62,10 +64,7 @@
 		<td class="winners">{@html winner_2016(county.county_name)}</td>
     <td>{intcomma(county.apps_submitted_latest)}</td>
     <td>{intcomma(county.ballots_accepted_latest)}</td>
-		<td class="current">{pct_to_date(
-				county.ballots_accepted_latest,
-				get_accepted_by_week(get_county_prev_year(county_data_2018, county.county_name).ts, current_week)
-			)}</td>
+		<td class="current">{display_pct(county.pct_to_date)}</td>
 		<td class="spark-td">
 				<CountySparkline
 					name={county.county_name}

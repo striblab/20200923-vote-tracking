@@ -1,0 +1,48 @@
+#map-row {
+  display: flex;
+  justify-content: space-around;
+
+  .map-group {
+    width: 45%;
+
+    h3 {
+      text-align: center;
+    }
+  }
+
+  .map-subrow {
+    display: flex;
+    justify-content: center;
+    // width: 33%;
+  }
+
+  .map-item {
+    margin: 0 1em;
+
+    h4 {
+      font-size: 0.8em;
+      margin-bottom: 0.2em;
+    }
+  }
+}
+
+.iso-map {
+  width: 150px;
+}
+
+svg {
+  .area-feature {
+    fill: #EFEFEF;
+    // stroke: #DDD;
+    stroke-width: 2px;
+    opacity: 0.7;
+  }
+
+  .highlight-feature {
+    fill: #CCC;
+    stroke: #FFF;
+    stroke-width: 3px;
+    opacity: 1;
+  }
+
+}
