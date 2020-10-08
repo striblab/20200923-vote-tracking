@@ -30,8 +30,8 @@
 
   var pct_change_color = d3.scaleDiverging()
     .domain([-300, 0, 1000])
-    // .domain([pct_extent[0], 0, pct_extent[1]])
-    .interpolator(d3.interpolatePRGn);
+     .domain([pct_extent[0], 0, pct_extent[1]])
+     .interpolator(d3.interpolateBrBG);
 
   // var raw_count_color = d3.scaleSequential()
   //   // .domain([-300, 0, 300])
@@ -44,7 +44,7 @@
   console.log(ckmeans_stops);
   var raw_count_color = d3.scaleThreshold()
     .domain(ckmeans_stops)
-    .range(['#CECECE', '#D6E6CC', '#B6E3A6', '#8CBF82', '#5A9E65', '#3C8259']);
+    .range(['#D9D3EB', '#B6AED4', '#7D739C', '#62597D', '#4A4061']);
 
   function getFillColor(county_name) {
     var bool_show_county = show_counties.indexOf(county_name.toLowerCase()) != -1;
