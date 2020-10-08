@@ -46,3 +46,14 @@ svg {
   }
 
 }
+
+
+    
+@media (max-width:600px) {
+  #map-row {
+    display: block !important;
+  }
+  .map-group {
+    width: 100% !important;
+  }
+}
