@@ -25,7 +25,7 @@ export let county_data_2020;
     </div>
     <div class="center">
       <div class="legend"><div class="null"></div><div class="purple1"></div><div class="purple2"></div><div class="purple3"></div><div class="purple4"></div><div class="purple5"></div></div>
-      <div class="legend"><div class="white">--</div><div class="white">more >></div><div class="white">&nbsp;</div><div class="white">&nbsp;</div><div class="white">&nbsp;</div><div class="white"></div></div>
+      <div class="legend"><div class="white">--</div><div class="white">more →</div><div class="white">&nbsp;</div><div class="white">&nbsp;</div><div class="white">&nbsp;</div><div class="white"></div></div>
     </div>
   </div>
   <div class="map-group">
