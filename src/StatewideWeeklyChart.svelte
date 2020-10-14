@@ -59,7 +59,7 @@
   x.domain(d3.extent(x_axis_labels, function(d) { return d.date; }));
 
   let y = d3.scaleLinear()
-    .domain([0, 800000])
+    .domain([0, 1000000])
     // .domain([0, d3.max(data, d => d.ballots_accepted)])
     .range([height - margin.bottom, margin.top])
 
