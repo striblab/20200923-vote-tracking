@@ -46,6 +46,12 @@
 </script>
 
 <p class="buffer">&nbsp;</p>
+<div class="subscribe-promo">
+<img src="https://www.startribune.com/static/img/branding/logos/startribune-star-black.svg" alt="Star Tribune" width="45" height="45"><h3>Be Informed. Be Ready. Be a Subscriber.</h3>
+<a href="https://users.startribune.com/placement/6/environment/3/PreElectionPDAPromotion/start?offer=689" target="_blank"><h4>Subscribe today</h4></a>
+</div>
+
+<p class="buffer">&nbsp;</p>
 <div class="chartTitle">Absentee voting by county</div>
 <table id="county-totals">
   <tr>
