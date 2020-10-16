@@ -28,10 +28,9 @@
   let accepted_extent = d3.extent(county_data_2020, d => d.ballots_accepted_latest);
   console.log(accepted_extent);
 
-  var pct_change_color = d3.scaleDiverging()
-    .domain([-300, 0, 1000])
-     .domain([pct_extent[0], 0, pct_extent[1]])
-     .interpolator(d3.interpolateBrBG);
+  var pct_change_color = d3.scaleSequential()
+    .domain([250, 500, 1000, 2000, 3000, 4000])
+     .range(['#c7e5b5', '#9ee384', '#5bbf48', '#299e3d', '#118241', '#004C21']);
 
   // var raw_count_color = d3.scaleSequential()
   //   // .domain([-300, 0, 300])
@@ -51,6 +50,7 @@
     if (bool_show_county) {
       if (map_type == 'pct_change') {
         var pct_to_date = county_data_2020.find(c => c.county_name.toLowerCase() == county_name.toLowerCase()).pct_to_date;
+        console.log(pct_to_date);
         return pct_change_color(pct_to_date);
       } else {
         var ballots_accepted = county_data_2020.find(c => c.county_name.toLowerCase() == county_name.toLowerCase()).ballots_accepted_latest;

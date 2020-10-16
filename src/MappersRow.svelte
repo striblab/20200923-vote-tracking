@@ -41,8 +41,8 @@ export let county_data_2020;
       </div>
     </div>
     <div class="center">
-      <div class="legend"><div class="orange5"></div><div class="orange3"></div><div class="orange1"></div><div class="green1"></div><div class="green3"></div><div class="green5"></div></div>
-      <div class="legend"><div class="white"></div><div class="white"></div><div class="white">-</div><div class="white">+</div><div class="white"></div><div class="white"></div></div>
+            <div class="legend"><div class="null"></div><div class="green1"></div><div class="green2"></div><div class="green3"></div><div class="green4"></div><div class="green5"></div></div>
+            <div class="legend"><div class="white">--</div><div class="white">more →</div><div class="white"></div><div class="white"></div><div class="white"></div><div class="white">+3000%</div></div>
     </div>
   </div>
 </div>

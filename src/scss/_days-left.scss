@@ -68,10 +68,12 @@
 }
 
 .small {
+  width: 65%;
   display: block;
   padding: 0.5em 4em;
   font-size: 0.8em;
-  text-align:center;
+  margin: auto;
+  text-align: center;
 }
 
 @media (max-width:600px) {
