@@ -29,7 +29,7 @@
   console.log(accepted_extent);
 
   var pct_change_color = d3.scaleSequential()
-    .domain([250, 500, 1000, 2000, 3000, 4000])
+    .domain([50, 100, 200, 300, 400, 500])
      .range(['#c7e5b5', '#9ee384', '#5bbf48', '#299e3d', '#118241', '#004C21']);
 
   // var raw_count_color = d3.scaleSequential()

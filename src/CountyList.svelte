@@ -1,4 +1,6 @@
 <script>
+	import {TableSort} from 'svelte-tablesort';
+
 	import CountySparkline from './CountySparkline.svelte';
 	import county_results_history from './scraper/json/county-results-history.json';
 
@@ -43,6 +45,8 @@
 		return county_obj.winner_2016 == 'D' ? '<span class="winner-d">Clinton</span>' : '<span class="winner-r">Trump</span>';
 	}
 
+
+
 </script>
 
 <p class="buffer">&nbsp;</p>
@@ -55,12 +59,12 @@
 <div class="chartTitle">Absentee voting by county</div>
 <table id="county-totals">
   <tr>
-    <th>County</th>
-		<th class="winners">Winner 2012</th>
-		<th class="winners">Winner 2016</th>
-		<th>Ballots requested</th>
-    <th>Ballots accepted</th>
-		<th class="current">% of 2018<br />({current_week} weeks away)</th>
+    <th class="sort-head" data-sort="county_name" data-sort-initial="descending">County</th>
+		<th class="winners sort-head">Winner 2012</th>
+		<th class="winners sort-head">Winner 2016</th>
+		<th class="sort-head" data-sort="apps_submitted_latest">Ballots requested</th>
+    <th class="sort-head" data-sort="ballots_accepted_latest">Ballots accepted</th>
+		<th class="current sort-head" data-sort="pct_to_date">% of 2018<br />({current_week} weeks away)</th>
 		<th></th>
   </tr>
   {#each county_data_2020 as county, i}
