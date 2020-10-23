@@ -28,7 +28,7 @@
   let accepted_extent = d3.extent(county_data_2020, d => d.ballots_accepted_latest);
   console.log(accepted_extent);
 
-  var pct_change_color = d3.scaleSequential()
+  var pct_change_color = d3.scaleLinear()
     .domain([50, 100, 200, 300, 400, 500])
      .range(['#c7e5b5', '#9ee384', '#5bbf48', '#299e3d', '#118241', '#004C21']);
 
