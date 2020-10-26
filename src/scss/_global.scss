@@ -240,3 +240,8 @@ element.style {
 	letter-spacing: 0.75px;
 	transition: 0.25s all;
   }
+
+  .static-news-banner,
+.large-news-content-module {
+	display:none;
+}
