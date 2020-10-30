@@ -68,7 +68,7 @@ svg {
 
   text.year-total-label {
     font-family: "Benton Sans", sans-serif;
-    font-size: 9px;
+    font-size: 8.5px;
     text-anchor: middle;
     stroke: #a9a9a9;
     stroke-width: 0;
@@ -85,4 +85,7 @@ svg.sparkline circle.accepted {
     font-size: 14px !important;
   }
 
+  text.year-total-label {
+    font-size: 10px !important;
+  }
 }

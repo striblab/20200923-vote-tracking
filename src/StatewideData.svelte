@@ -27,4 +27,4 @@
 <p class="footnote">Note: weekly numbers reflect accepted absentee votes by mail and in-person</p>
 <div class="stats">Total absentee ballots requested: <span class="bolded">{intcomma(total_ballots_requested)}</span></div>
 <div class="stats">Total absentee ballots accepted so far: <span class="highlight highlight-under bolded">{intcomma(total_ballots_accepted)}</span> ({round_pct(pct_ballots_accepted)} of all requested)</div>
-<div class="stats">So far absentee ballots accepted this year are up about 370% from <span class="highlight-2016">2016</span> and <span class="highlight-2018">2018</span>.</div>
+<div class="stats">So far absentee ballots accepted this year are up about 280% from <span class="highlight-2016">2016</span> and <span class="highlight-2018">2018</span>.</div>

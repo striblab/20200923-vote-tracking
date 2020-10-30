@@ -59,7 +59,7 @@
   x.domain(d3.extent(x_axis_labels, function(d) { return d.date; }));
 
   let y = d3.scaleLinear()
-    .domain([0, 1500000])
+    .domain([0, 1800000])
     // .domain([0, d3.max(data, d => d.ballots_accepted)])
     .range([height - margin.bottom, margin.top])
 
@@ -187,7 +187,7 @@
     svg.append('text')
       .attr('class', 'year-total-label ' + selector)
       .attr('x', (width / 2))
-      .attr('y', y(total_ballots_accepted) - 4)
+      .attr('y', y(total_ballots_accepted) - 1)
       .text(label)
   }
 
