@@ -14,9 +14,9 @@
 <div class="days-left-group">
   <div class="days-left">
     <span class="mailing-days number">{time_to_mail_ballot}</span>
-    <span class="date-explainer">days left to<br />mail your ballot</span>
+    <span class="date-explainer">days left to Election Day</span>
     <span class="detail-date">({election_day.format('MMM D, YYYY')})</span>
-  	<span class="small">You can also drop your ballot off by Election Day.</span>
+  	<span class="small">You can also drop your absentee ballot off by Election Day.</span>
     <span class="small">You can register to vote at the polls on Election Day or when you drop off your absentee ballot at an early voting location.</span>
   </div>
 </div>
