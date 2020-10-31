@@ -6,7 +6,7 @@
   let registration_deadline = moment('2020-10-13 23:59:59').tz('America/Chicago')
   let time_to_preregister = registration_deadline.diff(now, 'days')
 
-  let election_day = moment('2020-11-03 12:00').tz('America/Chicago')
+  let election_day = moment('2020-11-03 00:00').tz('America/Chicago')
   let time_to_mail_ballot = election_day.diff(now, 'days')
 </script>
 
